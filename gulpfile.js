@@ -38,23 +38,22 @@ function createBanner() {
       .replace('@@version', version);
 }
 
-var bannerPlugin = new webpack.BannerPlugin(createBanner(), {
+var bannerPlugin = new webpack.BannerPlugin({
+  banner: createBanner(),
   entryOnly: true,
   raw: true
 });
 
 var webpackModule = {
-  loaders: [
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        cacheDirectory: true, // use cache to improve speed
-        babelrc: true // use the .baberc file
-      }
+  rules: [{
+    test: /\.js$/,
+    loader: 'babel-loader',
+    exclude: /node_modules/,
+    options: {
+      cacheDirectory: true, // use cache to improve speed
+      babelrc: true // use the .baberc file
     }
-  ],
+  }],
 
   // exclude requires of moment.js language files
   wrappedContextRegExp: /$^/
