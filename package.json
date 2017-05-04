@@ -26,7 +26,7 @@
     "test": "mocha",
     "build": "gulp",
     "watch": "gulp watch",
-    "watch-dev": "gulp watch --bundle"
+    "watch-dev": "gulp watch-dev"
   },
   "dependencies": {
     "emitter-component": "^1.1.1",

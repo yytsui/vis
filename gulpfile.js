@@ -13,7 +13,7 @@ var argv = require('yargs').argv;
 
 var ENTRY             = './index.js';
 var HEADER            = './lib/header.js';
-var DIST              = './dist';
+var DIST              = '/Users/yiyangtsui/projects/sandbox/RemoteDVR/src/main/resources/static/js/vis';
 var VIS_JS            = 'vis.js';
 var VIS_MAP           = 'vis.map';
 var VIS_MIN_JS        = 'vis.min.js';
@@ -195,6 +195,7 @@ gulp.task('minify', ['bundle-js'], function (cb) {
 });
 
 gulp.task('bundle', ['bundle-js', 'bundle-js-individual', 'bundle-css', 'bundle-css-individual', 'copy']);
+gulp.task('bundle-dev', ['bundle-js', 'bundle-css']);
 
 // read command line arguments --bundle and --minify
 var bundle = 'bundle' in argv;
@@ -215,6 +216,12 @@ else {
 gulp.task('watch', watchTasks, function () {
   gulp.watch(['index.js', 'lib/**/*'], watchTasks);
 });
+
+watchTasksDev = ['bundle-dev']
+gulp.task('watch-dev', watchTasksDev, function () {
+    gulp.watch(['index.js', 'lib/**/*'], watchTasksDev);
+});
+
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['clean', 'bundle', 'minify']);
