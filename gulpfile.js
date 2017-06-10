@@ -13,7 +13,8 @@ var argv = require('yargs').argv;
 
 var ENTRY             = './index.js';
 var HEADER            = './lib/header.js';
-var DIST              = '/Users/yiyangtsui/projects/sandbox/RemoteDVR/src/main/resources/static/js/vis';
+//var DIST              = '/Users/yiyangtsui/projects/sandbox/RemoteDVR/src/main/resources/static/js/local/tmp';
+var DIST              = '/tmp';
 var VIS_JS            = 'vis.js';
 var VIS_MAP           = 'vis.map';
 var VIS_MIN_JS        = 'vis.min.js';
